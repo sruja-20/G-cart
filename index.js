@@ -97,6 +97,36 @@ groceriesList = [
   },
 ];
 
+let filteredGroceryList = groceriesList;
+
+function listenForSearchChanges() {
+  let searchInput = document.getElementById("search-grocery");
+  var groceryList = document.getElementById("grocery-list");
+  let searchContainer = document.querySelector(".utility-functions .search");
+  let clearTemplate = document.getElementById("clear-search");
+  searchInput.addEventListener("input", () => {
+    groceryList.innerHTML = "";
+    if (searchInput.value && !searchContainer.querySelector(".clear-icon")) {
+      let clearSearch = clearTemplate.content.cloneNode(true);
+      let clearSearchElement = clearSearch.querySelector(".clear-icon");
+      clearSearchElement.addEventListener("click", () => {
+        searchInput.value = "";
+        clearSearchElement.remove();
+        filteredGroceryList = groceriesList;
+        groceryList.innerHTML = "";
+
+        displayGroceries();
+      });
+      searchContainer.appendChild(clearSearch);
+    }
+    filteredGroceryList = groceriesList.filter((f) =>
+      f.name.toLowerCase().includes(searchInput.value.toLowerCase())
+    );
+    displayGroceries();
+  });
+}
+listenForSearchChanges();
+
 function addGrocery(grocery) {
   var groceryList = document.getElementById("grocery-list");
   var template = document.getElementById("card");
@@ -115,6 +145,11 @@ function addGrocery(grocery) {
   templateElements.querySelector(".qty-dropdown").innerHTML = qtyOptions;
   groceryList.appendChild(templateElements);
 }
-for (let i = 0; i < groceriesList.length; i++) {
-  addGrocery(groceriesList[i]);
+
+function displayGroceries() {
+  for (let i = 0; i < filteredGroceryList.length; i++) {
+    addGrocery(filteredGroceryList[i]);
+  }
 }
+
+displayGroceries();
