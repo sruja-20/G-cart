@@ -87,6 +87,14 @@ groceriesList = [
     unit: "kg",
     quantityList: [1, 2, 3],
   },
+  {
+    name: "Bread",
+    description: "Feeling unwell have pieces of bread",
+    image: "assets/bread.jpeg",
+    price: 40,
+    unit: "qty",
+    quantityList: [1, 2],
+  },
 ];
 
 function addGrocery(grocery) {
