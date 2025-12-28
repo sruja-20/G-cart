@@ -11,21 +11,50 @@
     <title>G Cart</title>
   </head>
   <body>
-    <div class="header">
-      <div class="logo"><h3>G-Cart</h3></div>
-      <div class="utility-functions">
-        <div class="search">
-          <input type="text" />
-          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+    <div class="container lay-column gap8">
+      <div class="header">
+        <div class="logo"><h3>G-Cart</h3></div>
+        <div class="utility-functions">
+          <div class="search">
+            <input type="text" />
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          </div>
+          <div class="cart">
+            <i class="fa-solid fa-basket-shopping"></i>
+            <div class="count">0</div>
+          </div>
+          <div class="filter">
+            <i class="fa-solid fa-filter"></i>
+          </div>
         </div>
-        <div class="cart">
-          <i class="fa-solid fa-basket-shopping"></i>
-          <div class="count">0</div>
-        </div>
-        <div class="filter">
-          <i class="fa-solid fa-filter"></i>
+      </div>
+      <div id="grocery-list"></div>
+    </div>
+  </body>
+  <template id="card">
+    <div class="card-container">
+      <div class="lay-column gap8">
+        <div class="grocery-img lay-column align-center-center"></div>
+        <div class="lay-row space-between">
+          <div class="grocery-details lay-column gap4">
+            <div class="grocery-name"></div>
+            <p class="grocery-desc"></p>
+            <p class="grocery-rate"></p>
+          </div>
+          <div class="grocery-cart lay-column gap4">
+            <div class="select-qty">
+              <select class="qty-dropdown" name="" id="">
+                <option value="1">1 KG</option>
+                <option value="2">2 KG</option>
+              </select>
+            </div>
+            <div class="add-cart">
+              <button>+ Add</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </body>
+  </template>
+  <script src="index.js"></script>
 </html>
