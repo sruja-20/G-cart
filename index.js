@@ -118,6 +118,11 @@ function listenForSearchChanges() {
         displayGroceries();
       });
       searchContainer.appendChild(clearSearch);
+    } else if (!searchInput.value) {
+      let clearSearchElement = searchContainer.querySelector(".clear-icon");
+      if (clearSearchElement) {
+        clearSearchElement.remove();
+      }
     }
     filteredGroceryList = groceriesList.filter((f) =>
       f.name.toLowerCase().includes(searchInput.value.toLowerCase())
