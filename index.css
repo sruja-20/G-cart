@@ -48,6 +48,13 @@ body {
       position: absolute;
       color: #4caf50;
     }
+    .clear-icon {
+      left: 78%;
+      top: 16%;
+      position: absolute;
+      color: #4caf50;
+      cursor: pointer;
+    }
   }
 
   .filter {
